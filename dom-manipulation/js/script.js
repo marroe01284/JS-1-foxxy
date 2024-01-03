@@ -116,3 +116,18 @@ console.log("combinedResult: ", combinedResult); // Outputs true
 // More complex condition using logical operators
 let complexCondition = (true && false) || (true || false);
 console.log("complexCondition: ", complexCondition); // Outputs true
+
+// Select the BTN
+
+const myBtn = document.querySelector("button");
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+myBtn.addEventListener("click", function () {
+    let someRandomNumber = getRandomInt(220);
+
+    list.innerHTML += `<li>New Item ${someRandomNumber}</li>`
+    // list.innerHTML = list.innerHTML +  `<li>New Item</li>`
+});
