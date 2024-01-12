@@ -19,7 +19,8 @@ const variable2 = localStorage.getItem("variable2");
 
 console.log("variable2: ",variable2);
 
-// if you want to store an array or object you need to stringify that
+// if you want to store an array or
+// object you need to stringify that
 
 
 // mean you make it string

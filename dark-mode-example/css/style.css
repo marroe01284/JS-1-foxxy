@@ -1,0 +1,27 @@
+* {
+    font-family: Monaco, serif;
+    font-size: 16px;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    font-size: 1rem;
+    background-color: lightgrey;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    border: none;
+    font-size: 4rem;
+    background-color: darkgray;
+    border-radius: 50%;
+    width: 86px;
+    height: 86px;
+    cursor: pointer;
+}
