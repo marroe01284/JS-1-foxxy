@@ -14,7 +14,7 @@ function init() {
         if (currentMode === "dark") {
             isDarkMode = true;
             body.style.backgroundColor = "darkblue";
-        } else {
+        } else { // light
             isDarkMode = false;
             body.style.backgroundColor = "white";
         }
@@ -28,10 +28,10 @@ init();
 toggleBtn.addEventListener("click", function () {
     isDarkMode = !isDarkMode;
     console.log("isDarkMode: ", isDarkMode);
-    if (isDarkMode) {
+    if (isDarkMode) { // true
         body.style.backgroundColor = "darkblue";
         window.localStorage.setItem("mode", "dark");
-    } else {
+    } else { // false
         body.style.backgroundColor = "white";
         window.localStorage.setItem("mode", "light");
     }
