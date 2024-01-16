@@ -21,6 +21,7 @@ for (let i = 0; i < favourites.length; i++) {
     productsContainer.innerHTML += `
         <div class="product">
             <h4>${favourites[i].id}</h4>
+            <h3>${favourites[i].name}</h3>
             <span class="heart">
                 <svg class="active-heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

@@ -6,3 +6,19 @@
     fill: red;
     stroke: red;
 }
+
+.products-container {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.product {
+    border-radius: 1rem;
+    border: 1px solid gray;
+    padding: 1rem;
+    background-color: darkkhaki;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
