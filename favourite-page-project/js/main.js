@@ -7,7 +7,7 @@ const productsContainer = document.querySelector(".products-container");
 // 2. fill the container of the products with products
 
 for (let i = 0; i < productsData.length; i++) {
-    console.log(productsData[i]);
+    console.log("Product: ",productsData[i]);
     productsContainer.innerHTML += `
             <div class="product">
                 <img alt="random photo" src="https://picsum.photos/200" />
@@ -28,17 +28,24 @@ for (let i = 0; i < productsData.length; i++) {
 
 // 3. check if any of the FAV btns hearts clicked
 const favourites = document.querySelectorAll(".heart");
+
 console.log("favourites: ", favourites);
 // loop on the dom elements I selected hearts all the elements
 // with class heart
 for (let x = 0; x < favourites.length; x++) {
     console.log(favourites[x]);
-    favourites[x].addEventListener("click", function () {
+    favourites[x].addEventListener("click", function (event) {
         console.log("hey you clicked me i am the heart with index", favourites[x]);
 
         console.log("this.classList: ", this.classList);
         this.classList.toggle("active-heart");
-    })
+        // console.log("event", event);
+        // console.log("event", event.target);console.log("event", event);
+        //         // console.log("event", event.target);
+        //         // console.log("event", event.target.classList);
+        // console.log("event", event.target.classList);
+        // event.target.classList.toggle("active-heart");
+    });
 }
 
 // 4. I want to make >>>>this<<<< heart to be red
