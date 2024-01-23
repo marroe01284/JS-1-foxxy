@@ -13,7 +13,6 @@
 import products from "./data/products.js";
 
 const productsContainer = document.querySelector(".products-container");
-
 const favourites = getExistingFavs();
 
 // loop over the array
@@ -34,6 +33,7 @@ for (let i = 0; i < products.length; i++) {
     productsContainer.innerHTML += `
         <div class="product">
             <h4>${products[i].id}</h4>
+            <h3>${products[i].name}</h3>
             <span class="heart">
                 <svg
                  class="${cssClass}"
