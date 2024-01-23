@@ -13,7 +13,6 @@
 import products from "./data/products.js";
 
 const productsContainer = document.querySelector(".products-container");
-
 const favourites = getExistingFavs();
 
 // loop over the array
