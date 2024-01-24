@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Avenir, serif;
+}
+
+select {
+    width: 226px;
+    height: 38px;
+    border-radius: .5rem;
+    font-size: 1rem;
+    border: 2px solid lightgrey;
+    padding: .5rem;
+}
+
+.circles-container {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+    flex-wrap: wrap;
+}
+
+.circle {
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #BADA55;
+    color: maroon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
