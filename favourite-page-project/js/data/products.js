@@ -18,8 +18,16 @@ export default [
         id: 4,
         name: "iphone 13",
         price: 60000
-    }
+    },
+    {
+        id: 7,
+        name: "iphone 13",
+        price: 60000
+    },
+    {
+        id: 7,
+        name: "jhkjsfs 13",
+        price: 300
+    },
+
 ];
-//
-// let name = "thomas";
-// export {name};
