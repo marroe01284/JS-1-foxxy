@@ -1,15 +1,36 @@
 // data
-let todos;
-
-let todo = fetch("https://jsonplaceholder.typicode.com/users")
+fetch("https://jsonplaceholder.typicode.com/todos")
   .then(function (httpResponse) {
-    // extract the data (using the json function)
     return httpResponse.json();
   })
-  .then(function (todoResult) {
-    // do something with the data (store it in the todos variable)
-    todos = todoResult;
-  });
+  .then((data) => console.log(data));
 
-console.log("other stuff");
-// show it to the users
+async function getTodos() {
+  let httpResponse = await fetch("https://jsonplaceholder.typicode.com/todos");
+  let data = await httpResponse.json();
+  console.log(data);
+}
+
+getTodos();
+
+fetch("https://jsonplaceholder.typicode.com/todos", {
+  method: "POST",
+  body: JSON.stringify({
+    title: "foo",
+    body: "bar",
+    userId: 1,
+  }),
+  headers: {
+    "Content-type": "application/json; charset=UTF-8",
+  },
+}).then((httpResponse) => console.log(httpResponse));
+
+fetch("https://jsonplaceholder.typicode.com/todos/47", {
+  method: "DELETE",
+  headers: {
+    "Content-type": "application/json; charset=UTF-8",
+  },
+}).then(function (httpResponse) {
+  // extract the data (using the json function)
+  console.log(httpResponse);
+});
