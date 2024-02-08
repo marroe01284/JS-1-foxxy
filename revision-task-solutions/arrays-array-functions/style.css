@@ -1,0 +1,21 @@
+#shopping-app {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+#items-list {
+    list-style: none;
+    padding: 0;
+}
+
+#items-list li {
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+#items-list li span {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
+}

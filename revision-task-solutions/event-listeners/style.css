@@ -1,0 +1,19 @@
+#todo-app {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+}
+
+#tasks-list {
+    list-style: none;
+    padding: 0;
+}
+
+#tasks-list li {
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.completed {
+    text-decoration: line-through;
+}

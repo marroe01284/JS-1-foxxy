@@ -19,21 +19,16 @@ const squaresArrow = numbers.map(number => number * number);
 const myObject = {
     property: 'Hello, World!',
     traditionalMethod: function() {
-        console.log(this.property); // 'this' refers to myObject
-    },
+        console.log(this); // 'this' refers to myObject
+    }
 };
 
 const myObjectWithArrow = {
     property: 'Hello, World!',
     methodWithArrow: () => {
-        console.log(this.property); // 'this' is lexically bound
-    },
+        console.log(this); // 'this' is lexically bound
+    }
 };
 
-let extractedTraditionalMethod = myObject.traditionalMethod()
-
-extractedTraditionalMethod()
-
-let extractedArrowMethod = myObjectWithArrow.methodWithArrow()
-
-extractedArrowMethod()
+myObject.traditionalMethod() // maintains reference to the object
+myObjectWithArrow.methodWithArrow() // loses reference to the object (prints out window object)
