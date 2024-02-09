@@ -1,9 +1,18 @@
 // !! Need the shelf help JSON server to be running on http://localhost:3000
 const bookListDiv = document.getElementById("book-list");
 const filterButton = document.getElementById("btnFilter");
+const dropdownAuthorList = document.getElementById("authorList");
+const resetButton = document.getElementById("btnReset");
 
-filterButton.addEventListener("click", () => {
-  filterByAuthor("Stephen Gundry");
+filterButton.addEventListener("click", () =>
+  filterByAuthor(dropdownAuthorList.value)
+);
+resetButton.addEventListener("click", () => {
+  bookListDiv.innerHTML = "";
+
+  for (const book of bookData) {
+    displayBook(book);
+  }
 });
 
 let bookData = [];
@@ -19,49 +28,49 @@ fetch("http://localhost:3000/books")
       displayBook(book);
     }
 
-    // remove loading message
+    loadAuthorsIntoDropDown();
   });
 
 // Defines a function to display a book's information in the DOM
 function displayBook(book) {
-  // Creates a new div element to hold the book's details
   const bookDiv = document.createElement("div");
-  // Creates a new paragraph element for the book's title
   const bookTitlePara = document.createElement("p");
-  // Sets the text of the paragraph to the book's title
   bookTitlePara.innerText = book.title;
-  // Creates a new img element for the book's cover image
   const bookImg = document.createElement("img");
-  // Sets the source of the image to the URL path of the book's cover image
   bookImg.src = `http://localhost:3000/assets/images/${book.coverImg}`;
-  // Sets the alt text for the image for accessibility purposes
   bookImg.alt = "a picture of a book";
-  // Appends the image element to the book div
   bookDiv.appendChild(bookImg);
-  // Appends the title paragraph to the book div
   bookDiv.appendChild(bookTitlePara);
-
-  // Finally, appends the book div to a parent div in the DOM,
-  // represented here as `bookListDiv`, which should be predefined in the broader scope
   bookListDiv.appendChild(bookDiv);
 }
 
 function filterByAuthor(authorToFilterBy) {
-  // filter the array by authors name
-  let filteredResults = [];
-
-  for (const book of bookData) {
-    if (book.author === authorToFilterBy) {
-      filteredResults.push(book);
+  try {
+    if (authorToFilterBy === "default") {
+      throw new Error("Bad Filter");
     }
+    // filter the array by authors name
+    let filteredResults = [];
+
+    for (const book of bookData) {
+      if (book.author === authorToFilterBy) {
+        filteredResults.push(book);
+      }
+    }
+
+    // update the dom to show the new array
+
+    // clear the old list from DOM
+    bookListDiv.innerHTML = "";
+    // loop through the new filtered list
+    for (const book of filteredResults) {
+      // display/render each book
+      displayBook(book);
+    }
+  } catch (error) {
+    alert("Please select an author");
   }
-
-  console.log(filteredResults);
-
-  // update the dom to show the new array
-  // pending .... next lesson
 }
-
 // Alternative function to create and insert the HTML to display a book but with templating
 function displayBookAlt(book) {
   // Create the div element for the book
@@ -73,4 +82,14 @@ function displayBookAlt(book) {
   `;
   // Append the bookDiv to the bookListDiv
   bookListDiv.appendChild(bookDiv);
+}
+
+function loadAuthorsIntoDropDown() {
+  for (const book of bookData) {
+    // creat an option with author name
+    const authorOption = document.createElement("option");
+    authorOption.innerText = book.author;
+    // add it to dropdown
+    dropdownAuthorList.appendChild(authorOption);
+  }
 }
