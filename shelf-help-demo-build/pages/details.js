@@ -12,10 +12,17 @@ function displayBookDetails(book) {
     bookImg.src = `http://localhost:3000/assets/images/${book.coverImg}`;
     bookImg.alt = "a picture of a book";
     const bookBlurb = document.createElement('p')
-    bookBlurb.innerText = book.blurb
+    const firstSentence = book.blurb.split(',')[0]
+    bookBlurb.innerHTML = `<p>${firstSentence} +<span id="readMore">  ...read more</span></p>`
+    
   
     bookDiv.appendChild(bookImg);
     bookDiv.appendChild(bookTitlePara);
     bookDiv.appendChild(bookBlurb)
     bookListDiv.appendChild(bookDiv);
+
+    document.getElementById('readMore').addEventListener('click',()=>{
+      bookBlurb.innerHTML = book.blurb
+      
+    })
   }
