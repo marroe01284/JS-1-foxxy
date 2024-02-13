@@ -1,8 +1,12 @@
+
+import { paginate, paginateGross } from "./modules/bookFeatures.js";
+
 // !! Need the shelf help JSON server to be running on http://localhost:3000
 const bookListDiv = document.getElementById("book-list");
 const filterButton = document.getElementById("btnFilter");
 const dropdownAuthorList = document.getElementById("authorList");
 const resetButton = document.getElementById("btnReset");
+const pageButtons = document.getElementById("pageButtons");
 
 filterButton.addEventListener("click", () =>
   filterByAuthor(dropdownAuthorList.value)
@@ -24,9 +28,30 @@ fetch("http://localhost:3000/books")
   .then((bookResultData) => {
     bookData = bookResultData;
 
-    for (const book of bookData) {
-      displayBook(book);
+   const paginatedBooks = paginateGross(bookData,3)
+  
+   for (const book of paginatedBooks[0]) {
+    displayBook(book)
+  }
+
+    // create buttons
+    // each button should display two books
+    let counter = 1
+    for (const bookArray of paginatedBooks) {
+      const pageButton = document.createElement('button')
+      pageButton.innerText = counter
+      counter++
+      pageButton.addEventListener('click',()=>{
+          bookListDiv.innerHTML= "  "
+        for (const book of bookArray) {
+          displayBook(book)
+        }   
+
+
+      })
+      pageButtons.appendChild(pageButton)
     }
+
 
     loadAuthorsIntoDropDown();
   });
