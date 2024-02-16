@@ -130,3 +130,4 @@ function loadAuthorsIntoDropDown() {
     dropdownAuthorList.appendChild(authorOption);
   }
 }
+

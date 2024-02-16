@@ -1,11 +1,9 @@
-const currentCollection = sessionStorage.getItem("collectedBooks");
-const collectionList = document.getElementById('collectionList')
-
-let collectionTitles = currentCollection.split('#')
-collectionTitles.shift()
-
-for (const title of collectionTitles) {
-    let bookTitle = document.createElement('li')
-    bookTitle.innerText = title
-    collectionList.appendChild(bookTitle)
-}
+fetch("http://localhost:3000/users/1")
+  .then((response) => response.json())
+  .then((userData) => {
+    for (const title of userData.collection) {
+      let bookTitle = document.createElement("li");
+      bookTitle.innerText = title;
+      collectionList.appendChild(bookTitle);
+    }
+  });
